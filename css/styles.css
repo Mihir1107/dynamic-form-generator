@@ -1,0 +1,239 @@
+/* General Layout */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    margin: 20px;
+    text-align: center;
+}
+
+/* Titles */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Input Group Styling */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+/* Input Fields */
+.input-field, select, button {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.input-field {
+    padding: 10px;
+}
+
+.input-field:focus, .dropdown:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+select {
+    padding: 10px;
+}
+
+/* Button Styling */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block;
+    text-align: center;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.add-button {
+    width: 48%;
+    margin-bottom: 15px;
+    background: #28a745;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.preview-button {
+    width: 48%;
+    background: #007bff;
+}
+
+.reset-button {
+    background-color: #dc3545;
+    margin-top: 10px;
+}
+
+.reset-button:hover {
+    background-color: #c82333;
+}
+
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Add Option Button */
+.add-option-btn {
+    padding: 8px 12px;
+    background: #17a2b8;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.add-option-btn:hover {
+    background: #138496;
+}
+
+/* Remove Option Button */
+.remove-option {
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.remove-option:hover {
+    background: #b52b3b;
+}
+
+/* Checkbox Container */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-container label {
+    font-size: 1rem;
+}
+
+/* Required Asterisk */
+.required-asterisk {
+    color: red;
+    font-size: 1.2rem;
+}
+
+/* Preview Styling */
+#previewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.question-label {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.question-label .required-asterisk {
+    margin-left: 5px;
+}
+
+/* Add to Form and Preview Form buttons layout */
+#form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px; /* Space between form and buttons */
+}
+
+#form-actions button {
+    width: 48%; /* Buttons take 48% of the container */
+    padding: 12px 20px;
+}
+
+/* Input Fields Alignment Fix */
+.input-group {
+    margin-bottom: 20px; /* Ensures space between each input group */
+}
+
+/* Range Inputs */
+.date-range, .number-range {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* Stack buttons vertically on smaller screens */
+    #form-actions {
+        flex-direction: column;
+    }
+
+    #form-actions button {
+        width: 100%;
+        margin-bottom: 10px; /* Adds space between buttons */
+    }
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-group button {
+    width: 100%;
+    margin-bottom: 10px; /* Adds space between buttons */
+}
+
+.validation-container {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.validation-container h3 {
+    margin-bottom: 10px;
+}
+
+.validation-field {
+    margin-bottom: 10px;
+}

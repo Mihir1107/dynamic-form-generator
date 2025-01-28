@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Dynamic Form Generator</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Dynamic Form Generator</h1>
+        
+        <form id="form">
+            <!-- Question and Question Type Section -->
+            <div class="input-group">
+                <input type="text" id="questionInput" placeholder="Enter the Question" class="input-field">
+                <select name="questionType" id="questionType" class="dropdown">
+                    <option value="text">Text</option>
+                    <option value="multipleChoice">Multiple Choice</option>
+                    <option value="checkbox">Checkbox</option>
+                    <option value="date">Date</option>
+                    <option value="number">Number</option>
+                </select>
+                <label>
+                    <input type="checkbox" id="isRequired">
+                    Required
+                </label>
+            </div>
+
+            <!-- Add to form button -->
+            <div class="button-group">
+                <button type="button" onclick="addQuestion();" class="add-button">Add to Form</button>
+                <button type="button" onclick="showPreview();" class="preview-button">Preview Form</button>
+            </div>
+            
+            <!-- Reset Button (conditionally shown) -->
+            <button type="button" id="resetFormBtn" class="reset-button" onclick="resetForm()" style="display: none;">Reset</button>
+
+            <!-- Validation Inputs dynamically shown here -->
+            <div id="validationInputs" style="display: none;"></div>
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
