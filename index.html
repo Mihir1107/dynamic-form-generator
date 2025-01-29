@@ -3,44 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <title>Dynamic Form Generator</title>
 </head>
 <body>
-    <div class="form-container">
-        <h1>Dynamic Form Generator</h1>
-        
-        <form id="form">
-            <!-- Question and Question Type Section -->
-            <div class="input-group">
-                <input type="text" id="questionInput" placeholder="Enter the Question" class="input-field">
-                <select name="questionType" id="questionType" class="dropdown">
+    <div class="container">
+        <!-- Configuration Section -->
+        <div class="config-section">
+            <h1>Dynamic Form Generator</h1>
+            
+            <div class="input-row">
+                <input type="text" id="questionText" placeholder="Enter question" class="input-field">
+                <select id="questionType" class="dropdown" onchange="showValidationInputs()">
+                    <option value="" disabled selected>Select Type</option>
                     <option value="text">Text</option>
-                    <option value="multipleChoice">Multiple Choice</option>
-                    <option value="checkbox">Checkbox</option>
+                    <option value="radio">Radio Buttons</option>
+                    <option value="checkbox">Checkboxes</option>
                     <option value="date">Date</option>
                     <option value="number">Number</option>
                 </select>
-                <label>
-                    <input type="checkbox" id="isRequired">
-                    Required
-                </label>
             </div>
 
-            <!-- Add to form button -->
-            <div class="button-group">
-                <button type="button" onclick="addQuestion();" class="add-button">Add to Form</button>
-                <button type="button" onclick="showPreview();" class="preview-button">Preview Form</button>
-            </div>
-            
-            <!-- Reset Button (conditionally shown) -->
-            <button type="button" id="resetFormBtn" class="reset-button" onclick="resetForm()" style="display: none;">Reset</button>
+            <div id="validationsContainer" class="validation-section" style="display: none;">
+                <h3>Validations</h3>
+                <div class="validation-inputs">
+                    <!-- Text validation -->
+                    <div id="textValidation" class="validation-field" style="display: none;">
+                        <div class="form-group">
+                            <label>Maximum Characters:</label>
+                            <input type="number" id="maxChars" class="input-field" min="1">
+                        </div>
+                        <div class="form-group required-field">
+                            <label>
+                                <input type="checkbox" id="isRequired">
+                                <span>Required</span>
+                            </label>
+                        </div>
+                    </div>
 
-            <!-- Validation Inputs dynamically shown here -->
-            <div id="validationInputs" style="display: none;"></div>
-        </form>
+                    <!-- Date validation -->
+                    <div id="dateValidation" class="validation-field" style="display: none;">
+                        <div class="form-group">
+                            <label>Start Date:</label>
+                            <input type="date" id="startDate" class="input-field">
+                        </div>
+                        <div class="form-group">
+                            <label>End Date:</label>
+                            <input type="date" id="endDate" class="input-field">
+                        </div>
+                        <div class="form-group required-field">
+                            <label>
+                                <input type="checkbox" id="isRequired">
+                                <span>Required</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Number validation -->
+                    <div id="numberValidation" class="validation-field" style="display: none;">
+                        <div class="form-group">
+                            <label>Minimum Value:</label>
+                            <input type="number" id="minValue" class="input-field">
+                        </div>
+                        <div class="form-group">
+                            <label>Maximum Value:</label>
+                            <input type="number" id="maxValue" class="input-field">
+                        </div>
+                        <div class="form-group required-field">
+                            <label>
+                                <input type="checkbox" id="isRequired">
+                                <span>Required</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Options validation (for radio and checkbox) -->
+                    <div id="optionsValidation" class="validation-field" style="display: none;">
+                        <h3>Add Options</h3>
+                        <div id="optionInputs"></div>
+                        <button type="button" onclick="addOption()" class="btn">+ Add Option</button>
+                        <div class="form-group required-field">
+                            <label>
+                                <input type="checkbox" id="isRequired">
+                                <span>Required</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-row">
+                <button type="button" onclick="addQuestion()" class="btn primary">Add Question</button>
+                <button type="button" onclick="togglePreview()" class="btn secondary">Toggle Preview</button>
+                <button type="button" onclick="toggleModifyForm()" class="btn secondary">Modify Form</button>
+                <button type="button" onclick="resetForm()" class="btn danger">Reset Form</button>
+            </div>
+        </div>
+
+        <!-- Preview Section -->
+        <div class="preview-section" id="previewSection" style="display: none;">
+            <h2>Form Preview</h2>
+            <form id="previewForm" onsubmit="validateForm(event)"></form>
+            <button onclick="validateForm(event)" class="btn primary submit-btn">Submit Form</button>
+        </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
